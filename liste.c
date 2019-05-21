@@ -200,6 +200,44 @@ node * delete_node(node *temp){
      }
   return temp;
 }
+
+/*inserisce un nuovo numero in testa alla lista*/
+node *inserisciIntesta(node *temp){
+     int num;
+     printf("\ninserisci un numero :");
+     scanf("%d",&num);
+     node *p;
+     p=(node *)malloc(sizeof(node));
+     p->data=num;
+     p->next=NULL;
+     if(temp==NULL){temp=p;}
+     else{
+        p->next=temp;
+        temp=p;
+     }
+return temp ;
+}
+/*inserisce un nuovo numero nel meglio della lista*/
+node *inserisci_middle(node *temp){
+     int num,i=1,loc;
+     printf("\ninserisci un numero :");
+     scanf("%d",&num);
+     node *p,*q;
+     p=(node *)malloc(sizeof(node));
+     p->data=num;
+     p->next=NULL;
+     printf("\ninserisci locale :");
+     scanf("%d",&loc);
+     if(loc >lenght(root)){printf("\nINvalid location\n");}
+     else{
+         q=temp;
+         while(i<=loc-1){q=q->next;i++;}
+         p->next=q->next;
+         q->next=p;
+     }
+
+return temp ;
+}
 int main(){
 
       int val;
@@ -215,6 +253,10 @@ int main(){
      list=reverse(root);
      stampa(root);
      printf("\nci sono %d multipli di 3.\n",countm(root));
+     root=inserisci_middle(root);
+     stampa(root);
+     root=inserisciIntesta(root);
+     stampa(root);
      root=delete_node(root);
      stampa(root);
      root=destroy(root);
