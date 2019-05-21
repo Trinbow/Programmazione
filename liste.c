@@ -214,6 +214,7 @@ int main(){
      root=destroy(root);
      //delete(&root);
      stampa(root);
+     printf("\nthe end\n");
 
 return 0;
 
