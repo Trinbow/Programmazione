@@ -63,7 +63,7 @@ typedef struct n node ;
 node *root=NULL;
 
 
-
+//creare una lista
 node *creat_list(node *temp,int val){
 
       temp=(node *)malloc(sizeof(node));
@@ -95,13 +95,13 @@ node *creat_list(node *temp,int val){
     return root;
 
 }
-
+//stampa una lista
 void stampa(node *temp){
     //  if(temp==NULL){printf("\nla lista e' vuota");}
       if(temp !=NULL){printf("%3d",temp->data);stampa(temp->next);}
       else{printf("\n");}
 }
-
+//reverse of list
  node* reverse(node* temp)
 
     {
@@ -127,6 +127,7 @@ void stampa(node *temp){
         return temp;
 
 }
+//quanti multipli di 3 ci sono nella lista
 int  countm(node* temp)
 
     {
@@ -143,6 +144,8 @@ int  countm(node* temp)
       count=count+countm(temp->next);
 return count;
 }
+
+//come cancellare la lista con 2 puntatori
 /*void delete(node **temp){
      node *t1=*temp,*next;
      while(t1!=NULL){
@@ -156,6 +159,7 @@ return count;
 
       *temp=NULL;
 }*/
+//come cancellare tutta la lista
 node *destroy(node *temp){
      node *current=temp,*next;
      while(current !=NULL){
@@ -167,7 +171,7 @@ node *destroy(node *temp){
      temp=NULL;
 return temp;
 }
-
+//come sapere la lunghezza della lisra data
 int lenght(node *temp){
      int count =0;
      if(temp==NULL){return 0;}
@@ -178,6 +182,8 @@ int lenght(node *temp){
     }*/
 return count;
 }
+
+//come cancellare un nodo della lista
 node * delete_node(node *temp){
      node*p=temp,*q;
      int loc,i=1;
