@@ -292,7 +292,7 @@ int main(){
      stampa(root);
      root=delete_node(root);
      stampa(root);
-     root=destroy(root);
+     root=destroy(list);
      //delete(&root);
      stampa(root);
      printf("\nthe end\n");

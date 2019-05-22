@@ -30,7 +30,7 @@ void printlist(node *temp){
       if(temp ==NULL){printf("\n");}
       else{printf("%3d",temp->data);printlist(temp->next);}
 }
-//cancella tutti gli elementi della lista con ricirsive
+//cancella tutti gli elementi della lista con ricorsiva
 node*destroy(node *temp){
      //base case
      if(temp==NULL){return NULL;}
@@ -38,6 +38,20 @@ node*destroy(node *temp){
      free(temp);
      temp=p;
      return destroy(temp->next);
+}
+//esiste elemento nella lista using ricorsive
+bool esiste(node*temp,int x){
+      //base case
+      if(temp==NULL){return false;}
+      if(temp->data==x){return true;}
+      return esiste(temp->next,x);
+}
+//trova il massimo nella lista ricorsiva
+int massimo(node *temp,int max){
+       //base case
+       if(temp==NULL){return max;}
+       if(temp->data>=max){max=temp->data;}
+       return massimo(temp->next,max);
 }
 int main(){
     int v;
@@ -49,13 +63,12 @@ int main(){
     }while(v !=-1);
 
     printlist(root);
+    int x;
+    scanf("%d",&x);
+    printf("\nris=%d",esiste(root,x));
+    printf("\nmax=%d\n",massimo(root,0));
     root=destroy(root);
     printlist(root);
     printf("\nthe end\n");
-
-
-
-
-
   return 0   ;
 }
