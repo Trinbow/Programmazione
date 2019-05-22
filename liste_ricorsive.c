@@ -11,8 +11,8 @@ struct n{
 typedef struct n node ;
 node *root=NULL;
 //crea una nuova lista
-node *add_list(node *temp,int v){
-       temp=(node*)malloc(sizeof(node));
+node *add_list(node *temp,int i){
+      /* temp=(node*)malloc(sizeof(node));
        temp->data=v;
        temp->next=NULL;
        if(root==NULL){root=temp;}
@@ -22,7 +22,22 @@ node *add_list(node *temp,int v){
            p->next=temp;
 
        }
-return root;
+return root;*/
+      if (i!=0){
+            temp=(node*)malloc(sizeof(node));
+            temp->data=i;
+            temp->next=NULL;
+            if(root==NULL){root=temp;}
+            else{
+                node *p=root;
+                while(p->next !=NULL){p=p->next;}
+                p->next=temp;
+              }
+              scanf("%d",&i);
+              return add_list(temp,i);
+
+      }
+      else{return root;}
 }
 //stampa la lista creata
 void printlist(node *temp){
@@ -56,11 +71,8 @@ int massimo(node *temp,int max){
 int main(){
     int v;
     node *list;
-    do{
-       scanf("%d",&v);
-       if(v!=-1)
-         list=add_list(list,v);
-    }while(v !=-1);
+    scanf("%d",&v);
+    list=add_list(list,v);
 
     printlist(root);
     int x;
