@@ -64,10 +64,11 @@ int main(){
 
     printlist(root);
     int x;
+    printf("\ninserisci il numero :");
     scanf("%d",&x);
     printf("\nris=%d",esiste(root,x));
     printf("\nmax=%d\n",massimo(root,0));
-    root=destroy(root);
+    root=destroy(list);
     printlist(root);
     printf("\nthe end\n");
   return 0   ;
