@@ -48,6 +48,7 @@ int main() {
 #include<stdio.h>
 
 #include<stdlib.h>
+#include<stdbool.h>
 
 
 
@@ -160,7 +161,7 @@ return count;
       *temp=NULL;
 }*/
 //come cancellare tutta la lista
-node *destroy(node *temp){
+/*node *destroy(node *temp){
      node *current=temp,*next;
      while(current !=NULL){
          next=current->next;
@@ -170,6 +171,15 @@ node *destroy(node *temp){
 
      temp=NULL;
 return temp;
+}*/
+//come cancellare la lista con ricorsiva
+node*destroy(node *temp){
+     //base case
+     if(temp==NULL){return NULL;}
+     node*p=temp->next;
+     free(temp);
+     temp=p;
+     return destroy(temp->next);
 }
 //come sapere la lunghezza della lisra data
 int lenght(node *temp){
@@ -238,6 +248,25 @@ node *inserisci_middle(node *temp){
 
 return temp ;
 }
+//find elemnt in the lista
+int find(node *temp,int x){
+       int flag=0;
+       if(temp==NULL){return 0;}
+       else{
+          if(temp->data==x){flag=1;}
+          else{
+            flag=find(temp->next,x);}
+       }
+
+       if(flag==1){return 1;}
+       return 0;
+       //base case
+       /*if(temp==NULL){return false;}
+       //uguali al numero cercato
+       if(temp->data==x){return true;}
+
+       return find(temp->next,x);*/
+}
 int main(){
 
       int val;
@@ -250,6 +279,10 @@ int main(){
     	}while(val !=-1);
 
      stampa(root);
+     int x;
+     printf("\ninserici il valore cercato: ");
+     scanf("%d",&x);
+     printf("\nrisultato=%d\n",find(root,x));
      list=reverse(root);
      stampa(root);
      printf("\nci sono %d multipli di 3.\n",countm(root));
