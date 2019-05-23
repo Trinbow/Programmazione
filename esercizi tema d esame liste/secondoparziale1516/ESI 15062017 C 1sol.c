@@ -14,11 +14,12 @@ bool isdispari(int a){
       return false ;
 }
 //crear una lista using array
-node *creat_list(node *temp,int arr[8],int i){
-       if (i!=8){
-            if(isdispari(arr[i])){
+int i=8;
+node *creat_list(node *temp,int arr[],int n){
+       if (n!=0){
+            if(isdispari(arr[i-n])){
                   temp=(node*)malloc(sizeof(node));
-                  temp->data=arr[i];
+                  temp->data=arr[i-n];
                   temp->next=NULL;
                   if(root==NULL){root=temp;}
                   else{
@@ -27,7 +28,7 @@ node *creat_list(node *temp,int arr[8],int i){
                       p->next=temp;
                     }
             }
-            return creat_list(temp,arr,i+1);
+            return creat_list(temp,arr,n-1);
 
        }
        else{return root;}
@@ -52,17 +53,17 @@ void stampalist(node *temp){
       else{printf("%3d",temp->data);stampalist(temp->next);}
 }
 //stam>pa l array con using ricorsive
-void stampaArray(int arr[8],int i ){
+void stampaArray(int arr[],int n ){
 
-      if(i!=8){printf("%3d", arr[i]);stampaArray(arr,i+1);}
+      if(n!=0){printf("%3d", arr[i-n]);stampaArray(arr,n-1);}
       else{printf("\n");}
 }
 int main(){
     node *list;
     int arr[]={8,3,1,3,9,4,6,5};
-    stampaArray(arr,0);
+    stampaArray(arr,8);
     printf("\n");
-    list=creat_list(list,arr,0);
+    list=creat_list(list,arr,8);
     stampalist(root);
 
 
