@@ -1,23 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 #define DIM 3
 
+//prototyping delle funzione 
 char *encode(char ma[][DIM], int mi[][DIM], int size);
 void print_ma_mi(char ma[][DIM], int mi[][DIM], int size);
 int get_size(int mi[][DIM], int size);
 
-void main(){
-    char ma[DIM][DIM] = {{'a', 'f', 'k'}, {'o', 'u', 'p'}, {'w', 'e', 'j'}};
-    int mi[DIM][DIM] = {{3, 0, 2}, {2, 0, 1}, {0, 3, 2}};
-    int size = DIM;
-    
-    print_ma_mi(ma, mi, size);
-    
-    char *s = encode(ma, mi, size);
-	printf("Codifica: %s\n", s);
-}
 
+
+//restitusci la stringa s
 char *encode(char ma[][DIM], int mi[][DIM], int size) {
     char *s;
     int count = get_size(mi, size);
@@ -38,7 +28,7 @@ char *encode(char ma[][DIM], int mi[][DIM], int size) {
     s[index]='\0';	
     return s;
 }
-
+//restitusci la dimensione della stringa 
 int get_size(int mi[][DIM], int size) {
   
   int i,j;
@@ -52,7 +42,7 @@ int get_size(int mi[][DIM], int size) {
   
   
 }
-
+//stampa le due matrici
 void print_ma_mi(char ma[][DIM], int mi[][DIM], int size) {
       int i,j;
 
