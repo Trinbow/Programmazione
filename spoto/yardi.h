@@ -46,7 +46,7 @@ bool sempre_diversi(node *this){
     if(this->next==NULL){return true;}
     if(uguali(this->data,this->next->data)){return false;}
     return sempre_diversi(this->next);*/
- return !this || !this->next || (this->data != this->next->data  && sempre_diversi(this->next));
+ return !this || !this->next || (uguali(this->data , this->next->data)  && sempre_diversi(this->next));
 }
 //restit
 bool uguali(int a,int b){
