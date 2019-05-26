@@ -1,7 +1,7 @@
 #include "5.h"
 
 int main (){
-    printf("\ncio\n");    
+
     time tempo,*t=&tempo;	
     long int sec;
     printf("\ninserisci il tempo in secondi:");
