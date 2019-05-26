@@ -49,8 +49,6 @@ void checkstring(char word[]){
 int main () {
    char word[81]; 
 
-
-
        printf("Enter a string : ");
        scanf("%80s",word);
        printstring(word);
