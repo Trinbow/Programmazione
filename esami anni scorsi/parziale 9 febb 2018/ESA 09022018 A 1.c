@@ -64,18 +64,19 @@ float media_array(int a[N]){
 }
 //restiuisco vero se la media e uguali  di m,altrimenti falso 
 bool uguali(float med,int m){
-    if(med==m){return true;}
-    return false;
-
+    /*if(med==m){return true;}
+    return false;*/
+    return med==m;
 }
 //restiuisco vero se la media e minore di m,altrimenti falso 
 bool minore(float med,int m){
-    if(med<m){return true;}
-    return false;
+    /*if(med<m){return true;}
+    return false;*/
+    return med<m;
 }
 //restiuisco vero se la media e maggiore di m,altrimenti falso 
 bool maggiore(float med,int m){
-    if(med>m){return true;}
-    return false;
-
+    /*if(med>m){return true;}
+    return false;*/
+    return med>m ;
 }
