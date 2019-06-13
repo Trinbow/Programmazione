@@ -28,14 +28,15 @@ int main(){
 	stampa_lista(root);
 	triplica_vocali(root);
 	stampa_lista(root);
-        distruggi(root);
+        root=distruggi(root);
+        stampa_lista(root);
 	return 0;
 }
 
 //creo la lista di carratteri modo ricorsivo  
 struct node_t *crea_lista(char *s){
 
-     if(*s){
+     /*if(*s){
         struct node_t *temp;
         temp=(struct node_t *)malloc(sizeof(struct node_t));
         temp->value=*s;
@@ -48,7 +49,17 @@ struct node_t *crea_lista(char *s){
         }
         return crea_lista(s+1);    
      }
-     else{return root;}
+     else{return root;}*/
+
+        if(*s){
+             struct node_t *temp;
+             temp=(struct node_t *)malloc(sizeof(struct node_t));
+             temp->value=*s;
+             temp->next=crea_lista(s+1);
+             return temp;
+            
+        }
+        else{return NULL;}
 
 }
 
@@ -102,6 +113,7 @@ struct node_t  *add_list(struct node_t  *temp,char v,int n){
            
         }
         else{
+             
              return temp;
         }
 
