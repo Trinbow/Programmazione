@@ -86,7 +86,7 @@ void  sostituisci_vocali(struct node_t *temp){
 
  
 }
-//
+//creo la lista
 struct node_t *add_list(struct node_t *temp,char *s){
       if(*s){
              struct node_t*p;
@@ -101,7 +101,7 @@ struct node_t *add_list(struct node_t *temp,char *s){
         } 
 
 }
-//
+//distruggo la lista in modo ricorsivo 
 struct node_t *distruggi(struct node_t*temp){
    
       if(temp  !=NULL){
@@ -116,7 +116,7 @@ struct node_t *distruggi(struct node_t*temp){
 
 
 }
-//
+//verifico se il valore vocali o no 
 bool  isvocali(char c){
      return (c=='a' ||  c=='e' ||  c=='i' || c=='o' ||  c=='u' );
 
