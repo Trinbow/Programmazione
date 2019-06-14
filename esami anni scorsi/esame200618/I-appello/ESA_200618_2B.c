@@ -65,7 +65,9 @@ void init_matrix(struct element_t*matrix[DIM][DIM],int size,int value){
 void print_matrix(struct element_t* matrix[DIM][DIM], int size){
 	for(int i = 0; i < size; i++) {
 		for(int j = 0; j < size; j++) {
-			char c = (matrix[i][j]->valore == 0) ? BLANK : matrix[i][j]->nome;
+			char c;//char c = (matrix[i][j]->valore == 0) ? BLANK : matrix[i][j]->nome;
+                        if(matrix[i][j]->valore == 0){c=BLANK;}
+                        else{c=matrix[i][j]->nome;}
 			printf("%c ", c);
 		}		
 		printf("\n");
