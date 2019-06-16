@@ -80,8 +80,8 @@ void  stampa_lista(struct node_t *temp){
 void  triplica_vocali(struct node_t *temp){
        if(temp !=NULL){
              if(isvocal(temp->value)){
-                  temp->next=add_list(temp->next,temp->value,0);
-                  triplica_vocali(temp->next->next->next);
+                  temp->next=add_list(temp->next,temp->value,3);
+                  triplica_vocali(temp->next->next->next->next);
              }
              else{
                   triplica_vocali(temp->next);
@@ -104,12 +104,12 @@ bool  isvocal(char c){
 }
 //la funzione add list che crea una nuova lista di due nodi che contiene il vocali al posizione i della lista originali modo ricorsivo
 struct node_t  *add_list(struct node_t  *temp,char v,int n){
-        if(n<2){
+        if(n>0){
              struct node_t *p;
              p=(struct node_t *)malloc(sizeof(struct node_t));
              p->value=v;
              p->next=temp;
-             return add_list(p,v,n+1);
+             return add_list(p,v,n-1);
            
         }
         else{
