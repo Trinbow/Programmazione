@@ -22,6 +22,8 @@ struct node_t * add_list(struct node_t *p,char v,int n);
 
 struct node_t * distruggi(struct node_t *p);
 
+void destroy_vocali(struct node_t * n);
+
 //la funzione main 
 
 int main(){
@@ -32,6 +34,8 @@ int main(){
 	printf("\ninserisci quanti vocali vuoi ripetere:\n");
 	scanf("%d",&num);
 	triplica_vocali(head);
+	stampa_lista(head);
+	destroy_vocali(head);
 	stampa_lista(head);
 	head=distruggi(head);
 	stampa_lista(head);
@@ -100,7 +104,31 @@ struct node_t * add_list(struct node_t *p,char v,int n){
 		return p;
 	}
 }
+//distruggio tutti i vocali che se ripetono 
 
+void destroy_vocali(struct node_t * n){
+	if(n  != NULL){
+		
+		if(is_vocali(n->value)){
+			struct node_t*temp,*a=n->next;
+			while(a !=NULL && n->value == a->value){
+				temp=a->next;
+				free(a);
+				a=temp;
+				
+			}	
+			n->next=a; 
+                  	destroy_vocali(a);
+		}
+		else{
+			destroy_vocali(n->next);
+		}
+	}
+	else{
+		printf("\n\n");
+	}
+
+}
 //distruggo la lista in modo ricorsivo
 struct node_t * distruggi(struct node_t *p){
 	if(p !=NULL){
