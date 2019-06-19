@@ -19,7 +19,7 @@ void stampa_lista(struct node_t * n);
 bool is_vocali(char c);
 
 struct node_t * add_list(struct node_t *p,char v,int n);
-
+	
 struct node_t * distruggi(struct node_t *p);
 
 void destroy_vocali(struct node_t * n);
