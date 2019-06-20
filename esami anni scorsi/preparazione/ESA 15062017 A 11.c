@@ -69,7 +69,7 @@ struct nodo * riverse_list(struct nodo * list){
     	list->next->next = list;
     	list->next = NULL; 
 
-    return revHead;
+    	return revHead;
 }
 
 
